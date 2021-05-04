@@ -12,6 +12,7 @@ namespace ProductStore.Controllers
     {
         private ProdutoRepository respository = new ProdutoRepository();
         private CategoriaRepository categoriaRespository = new CategoriaRepository();
+        
         // GET: Produto
         public ActionResult Index()
         {
@@ -22,29 +23,6 @@ namespace ProductStore.Controllers
             return View(vm);
         }
 
-        //public ActionResult Index(VMProduto vm)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        respository.Save(vm.Produto);
-        //    }
-        //    return RedirectToAction("Index");
-        //}
-
-        // GET: Produto/Create
-        public ActionResult Create()
-        {
-            //return View();
-            return RedirectToAction("Index");
-        }
-
-        // POST: Produto/Create
-        [HttpPost]
-        public ActionResult Create(VMProduto vm)
-        {
-            respository.Save(vm.Produto);
-            return RedirectToAction("Index");
-        }
 
         public ActionResult Save(VMProduto vm)
         {
@@ -79,22 +57,7 @@ namespace ProductStore.Controllers
             return View("Index", vm);
         }
 
-        // POST: Produto/Edit/5
-        [HttpPost]
-        public ActionResult Edit(Produto produto)
-        {
-            if (ModelState.IsValid)
-            {
-                respository.Update(produto);
-                return RedirectToAction("Index");
-            }
-            else
-            {
-                //return View(produto);
-                return RedirectToAction("Index");
-            }
-        }
-
+        
         // GET: Produto/Delete/5
         public ActionResult Delete(int id)
         {

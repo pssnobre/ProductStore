@@ -50,7 +50,6 @@ namespace ProductStore.Repository
 
         public override List<Produto> GetAll()
         {
-            //string sql = "Select Id, Nome, Descricao, Ativo, Perecivel, CategoriaID FROM tblProduto ORDER BY Nome";
             string sql =
                 "SELECT t.Id, t.Nome, t.Descricao, t.Ativo, t.Perecivel, t.CategoriaID, c.Id, c.Nome  as CategoriaNome, c.Descricao, c.Ativo FROM tblProduto as t INNER JOIN tblCategoriaProduto as c ON t.CategoriaID = c.id; ";
             using (var conn = new SqlConnection(StringConnection))

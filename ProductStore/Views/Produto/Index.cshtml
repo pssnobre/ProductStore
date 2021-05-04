@@ -20,7 +20,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Produto.Nome, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Produto.Nome, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.Produto.Nome, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
                 @Html.ValidationMessageFor(model => model.Produto.Nome, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -28,7 +28,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Produto.Descricao, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Produto.Descricao, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.Produto.Descricao, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
                 @Html.ValidationMessageFor(model => model.Produto.Descricao, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -50,7 +50,6 @@
         </div>
 
         <div class="form-group">
-            @*@Html.LabelFor(model => model.Produto.CategoriaID, htmlAttributes: new { @class = "control-label col-md-2" })*@
             <label class="control-label col-md-2">Categoria</label>
             <div class="col-md-10">
                 @Html.DropDownListFor(m => m.Produto.CategoriaID, new SelectList(Model.ListaCategoria, "Id", "Nome", Model.Produto.CategoriaID ), new { @class = "form-control", style = "Width:50%" })
@@ -67,10 +66,6 @@
         </div>
     </div>
     }
-
-    @*<div>
-        @Html.ActionLink("Voltar a listagem", "Index")
-    </div>*@
 </div>
 
 
@@ -113,7 +108,6 @@
             </td>
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-                @*@Html.ActionLink("Details", "Details", new { id=item.Id }) |*@
                 @Html.ActionLink("Delete", "Delete", new { id=item.Id })
             </td>
         </tr>
